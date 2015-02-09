@@ -26,7 +26,7 @@ public class Application {
     protected static class SecurityConfiguration extends GlobalAuthenticationConfigurerAdapter {
 
         @Autowired
-        private MongoDBAuthenticationProvider authenticationProvider;
+        private MongodbAuthenticationProvider authenticationProvider;
 
         @Override
         public void init(AuthenticationManagerBuilder auth) throws Exception {
