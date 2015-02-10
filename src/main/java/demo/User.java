@@ -17,10 +17,13 @@ public class User {
     private String username;
 
     private String password;
-    private String firstname;
-    private String lastname;
-    private String status;
-    private Boolean enabled;
+    private String firstName;
+    private String lastName;
+
+    private boolean accountNonExpired;
+    private boolean accountNonLocked;
+    private boolean credentialsNonExpired;
+    private boolean enabled;
 
     private Set<String> roles = new HashSet<String>();
 
@@ -48,35 +51,51 @@ public class User {
         this.password = password;
     }
 
-    public String getFirstname() {
-        return firstname;
+    public boolean isAccountNonExpired() {
+        return accountNonExpired;
     }
 
-    public void setFirstname(String firstname) {
-        this.firstname = firstname;
+    public void setAccountNonExpired(boolean accountNonExpired) {
+        this.accountNonExpired = accountNonExpired;
     }
 
-    public String getLastname() {
-        return lastname;
+    public boolean isAccountNonLocked() {
+        return accountNonLocked;
     }
 
-    public void setLastname(String lastname) {
-        this.lastname = lastname;
+    public void setAccountNonLocked(boolean accountNonLocked) {
+        this.accountNonLocked = accountNonLocked;
     }
 
-    public String getStatus() {
-        return status;
+    public boolean isCredentialsNonExpired() {
+        return credentialsNonExpired;
     }
 
-    public void setStatus(String status) {
-        this.status = status;
+    public void setCredentialsNonExpired(boolean credentialsNonExpired) {
+        this.credentialsNonExpired = credentialsNonExpired;
     }
 
-    public Boolean getEnabled() {
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public boolean isEnabled() {
         return enabled;
     }
 
-    public void setEnabled(Boolean enabled) {
+    public void setEnabled(boolean enabled) {
         this.enabled = enabled;
     }
 }

@@ -6,6 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.authentication.configurers.GlobalAuthenticationConfigurerAdapter;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -26,16 +27,12 @@ public class Application {
     protected static class SecurityConfiguration extends GlobalAuthenticationConfigurerAdapter {
 
         @Autowired
-        private MongodbAuthenticationProvider authenticationProvider;
+        private CustomUserDetailsService customUserDetailsService;
 
         @Override
         public void init(AuthenticationManagerBuilder auth) throws Exception {
-            auth.authenticationProvider(authenticationProvider);
+            auth.userDetailsService(customUserDetailsService).passwordEncoder(new BCryptPasswordEncoder());
         }
-
-        // Check this: http://stackoverflow.com/questions/25633477/security-configuration-with-spring-boot
-
-
     }
 
 }
