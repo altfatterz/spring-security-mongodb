@@ -9,6 +9,8 @@ import org.springframework.context.annotation.Profile;
 
 import java.net.UnknownHostException;
 
+// Does not work like this either
+
 @Configuration
 @Profile("mongolab2")
 public class MongoLabConfiguration {
