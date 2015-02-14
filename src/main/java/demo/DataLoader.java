@@ -28,6 +28,7 @@ public class DataLoader {
         user.setAccountNonLocked(true);
         user.setCredentialsNonExpired(true);
         user.addRole("ROLE_USER");
+        user.addRole("ROLE_ADMIN");
 
         userRepository.save(user);
 
